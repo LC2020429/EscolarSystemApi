@@ -5,8 +5,8 @@ import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
-//import authRoutes from "../src/auth/auth.routes.js"
-//import userRoutes from "../src/user/user.routes.js"
+import authRoutes from "../src/auth/auth.routes.js"
+import userRoutes from "../src/user/user.routes.js"
 //import petRoutes from "../src/pet/pet.routes.js"
 //import appointmentRoutes from "../src/appointment/appointment.routes.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
@@ -19,14 +19,13 @@ const middlewares = (app) => {
     app.use(morgan("dev"))
     app.use(apiLimiter)
 }
-/*
+
 const routes = (app) =>{
-    app.use("/adoptionSystem/v1/auth", authRoutes)
-    app.use("/adoptionSystem/v1/user", userRoutes)
-    app.use("/adoptionSystem/v1/pet", petRoutes)
-    app.use("/adoptionSystem/v1/appointment", appointmentRoutes)
+    app.use("/scholarSystem/v1/auth", authRoutes)
+    app.use("/scholarSystem/v1/user", userRoutes)
+   // app.use("/adoptionSystem/v1/pet", petRoutes)
+   /// app.use("/adoptionSystem/v1/appointment", appointmentRoutes)
 }
-*/
 
 const conectarDB = async () =>{
     try{
@@ -42,7 +41,7 @@ export const initServer = () => {
     try{
         middlewares(app)
         conectarDB()
-       // routes(app)
+        routes(app)
         app.listen(process.env.PORT)
         console.log(`Server running on port ${process.env.PORT}`)
     }catch(err){

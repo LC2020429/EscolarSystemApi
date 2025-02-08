@@ -1,20 +1,20 @@
-import { Schema, model } from "moongose";
+import { Schema, model } from "mongoose";
 
 const userSchema = Schema(
   {
     nombreUser: {
       type: String,
-      requiered: [true, "El nombre es necesario"],
+      required: [true, "El nombre es necesario"],
       maxLength: [30, "El nombre no puede exceder los 30 caracteres"],
     },
     apellidoUser: {
       type: String,
-      requiered: [true, "Los apellido son requeridos"],
+      required: [true, "Los apellidos son requeridos"], 
       maxLength: [30, "Los apellidos no pueden exceder los 30 caracteres"],
     },
     userName: {
-      typre: String,
-      require: [true, "UserName es obligatorios"],
+      type: String,
+      required: [true, "UserName es obligatorio"],
     },
     correo: {
       type: String,
@@ -23,21 +23,21 @@ const userSchema = Schema(
     },
     password: {
       type: String,
-      requiered: [true, "Se necesita una contraseña"],
+      required: [true, "Se necesita una contraseña"], 
     },
     tel: {
       type: String,
       minLength: 8,
       maxLength: 8,
-      requiered: true,
+      required: true,
     },
     profilePicture: {
       type: String,
     },
     role: {
       type: String,
-      requiered: true,
-      enum: ["Profesor", "Estudent"],
+      required: true, 
+      enum: ["Profesor", "Estudiante"], 
     },
     status: {
       type: Boolean,
@@ -46,7 +46,7 @@ const userSchema = Schema(
   },
   {
     versionKey: false,
-    timeStamps: true,
+    timestamps: true, 
   }
 );
 

@@ -1,25 +1,33 @@
 import { body, param } from "express-validator";
-import {  correoExist,  userExists,  usernameExists,} from "../helpers/db-validators.js";
+import {
+  correoExist,
+  userExists,
+  usernameExists,
+} from "../helpers/db-validators.js";
 import { validarCampos } from "./validate-fields.js";
-// import { deleteFileOnError } from "./delete-file-on-error.js";
+import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
 
 export const registerValidator = [
-  body("name").notEmpty().withMessage("El nombre es requerido"),
-  body("username").notEmpty().withMessage("El username es requerido"),
-  body("email").notEmpty().withMessage("El email es requerido"),
-  body("email").isEmail().withMessage("No es un email válido"),
-  body("email").custom(correoExist),
+  body("nombreUser").notEmpty().withMessage("El nombre es requerido"),
+  body("apellidoUser").notEmpty().withMessage("El username es requerido"),
+  body("correo").notEmpty().withMessage("El email es requerido"),
+  body("correo").isEmail().withMessage("No es un email válido"),
+  body("correo").custom(correoExist),
   body("username").custom(usernameExists),
-  body("password").isStrongPassword({
-    minLength: 8,
-    minLowercase: 1,
-    minUppercase: 1,
-    minNumbers: 1,
-    minSymbols: 1,
-  }),
+  body("password")
+    .isStrongPassword({
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 1,
+    })
+    .withMessage(
+      "La contrasena necesita min 8 caracteres 1 mayuscula y 1 caracter especial"
+    ),
   validarCampos,
-  //deleteFileOnError,
+  deleteFileOnError,
   handleErrors,
 ];
 
