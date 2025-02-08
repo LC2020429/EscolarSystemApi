@@ -9,7 +9,7 @@ const userSchema = Schema(
     },
     apellidoUser: {
       type: String,
-      required: [true, "Los apellidos son requeridos"], 
+      required: [true, "Los apellidos son requeridos"],
       maxLength: [30, "Los apellidos no pueden exceder los 30 caracteres"],
     },
     userName: {
@@ -23,7 +23,7 @@ const userSchema = Schema(
     },
     password: {
       type: String,
-      required: [true, "Se necesita una contraseña"], 
+      required: [true, "Se necesita una contraseña"],
     },
     tel: {
       type: String,
@@ -36,8 +36,8 @@ const userSchema = Schema(
     },
     role: {
       type: String,
-      required: true, 
-      enum: ["Profesor", "Estudiante"], 
+      required: true,
+      enum: ["Profesor", "Estudiante"],
     },
     status: {
       type: Boolean,
@@ -46,7 +46,7 @@ const userSchema = Schema(
   },
   {
     versionKey: false,
-    timestamps: true, 
+    timestamps: true,
   }
 );
 
