@@ -8,7 +8,7 @@ import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
 
-export const registerValidator = [
+export const registerValidatorAdmin = [
   body("nombreUser").notEmpty().withMessage("El nombre es requerido"),
   body("apellidoUser").notEmpty().withMessage("El username es requerido"),
   body("correo").notEmpty().withMessage("El email es requerido"),
@@ -26,6 +26,38 @@ export const registerValidator = [
     .withMessage(
       "La contrasena necesita min 8 caracteres 1 mayuscula y 1 caracter especial"
     ),
+  validarCampos,
+  deleteFileOnError,
+  handleErrors,
+];
+
+export const registerValidator = [
+  body("nombreUser").notEmpty().withMessage("El nombre es requerido"),
+  body("apellidoUser").notEmpty().withMessage("El username es requerido"),
+  body("correo").notEmpty().withMessage("El email es requerido"),
+  body("correo").isEmail().withMessage("No es un email válido"),
+  body("correo").custom(correoExist),
+  body("role").default("Estudiante"),
+  body("username").custom(usernameExists),
+  body("password")
+    .isStrongPassword({
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 1,
+    })
+    .withMessage(
+      "La contrasena necesita min 8 caracteres 1 mayuscula y 1 caracter especial"
+    ),
+  (req, res, next) => {
+    // Elimina el campo role si existe en la solicitud
+    if (req.body.role) {
+      delete req.body.role;
+    }
+    req.body.role = "Estudiante";
+    next();
+  },
   validarCampos,
   deleteFileOnError,
   handleErrors,

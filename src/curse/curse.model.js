@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
-const userSchema = Schema({
+
+const curseSchema = new Schema({
   nombreCurso: {
     type: String,
     required: [true, "El nombre del curso es necesario"],
@@ -7,8 +8,8 @@ const userSchema = Schema({
   },
   descripCurso: {
     type: String,
-    required: [true, "Una descripcion es requerida"],
-    maxLength: [100, "Los apellidos no pueden exceder los 100 caracteres"],
+    required: [true, "Una descripción es requerida"],
+    maxLength: [100, "La descripción no puede exceder los 100 caracteres"],
   },
   status: {
     type: Boolean,
@@ -16,6 +17,13 @@ const userSchema = Schema({
   },
   cupoCurso: {
     type: Number,
-    required: [true, "Capacidad de alumnos"],
+    required: [true, "Capacidad de alumnos es requerida"],
+  },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   },
 });
+
+export default model("Curso", curseSchema);

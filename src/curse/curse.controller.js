@@ -1,5 +1,4 @@
-import Curso from "./curso.model.js";
-import User from "../models/user.model.js";
+import Curso from "./curse.model.js";
 
 export const getCursos = async (req, res) => {
   try {
@@ -11,11 +10,7 @@ export const getCursos = async (req, res) => {
       Curso.find(query).skip(Number(desde)).limit(Number(limite)),
     ]);
 
-    return res.status(200).json({
-      success: true,
-      total,
-      cursos,
-    });
+    return res.status(200).json({ success: true, total, cursos });
   } catch (err) {
     return res.status(500).json({
       success: false,
@@ -31,16 +26,12 @@ export const getCursoById = async (req, res) => {
     const curso = await Curso.findById(uid);
 
     if (!curso || curso.status === false) {
-      return res.status(404).json({
-        success: false,
-        message: "Curso no encontrado",
-      });
+      return res
+        .status(404)
+        .json({ success: false, message: "Curso no encontrado" });
     }
 
-    return res.status(200).json({
-      success: true,
-      curso,
-    });
+    return res.status(200).json({ success: true, curso });
   } catch (err) {
     return res.status(500).json({
       success: false,
@@ -53,6 +44,7 @@ export const getCursoById = async (req, res) => {
 export const createCurso = async (req, res) => {
   try {
     const { nombreCurso, descripCurso, cupoCurso } = req.body;
+    const userId = req.user._id;
 
     if (!nombreCurso || !descripCurso || !cupoCurso) {
       return res.status(400).json({
@@ -61,24 +53,12 @@ export const createCurso = async (req, res) => {
       });
     }
 
-    const user = req.user;
-
-    if (user.role !== "Profesor") {
-      return res.status(403).json({
-        success: false,
-        message: "Solo los profesores pueden crear cursos",
-      });
-    }
-
     const nuevoCurso = new Curso({
       nombreCurso,
       descripCurso,
       cupoCurso,
       status: true,
-      createdBy: {
-        email: user.correo,
-        username: user.userName,
-      },
+      createdBy: userId,
     });
 
     await nuevoCurso.save();
@@ -108,30 +88,22 @@ export const updateCurso = async (req, res) => {
         message: "Todos los campos son obligatorios",
       });
     }
-
-    const curso = await Curso.findById(uid);
-
-    if (!curso) {
+    const cursoActual = await Curso.findById(uid);
+    if (!cursoActual) {
       return res.status(404).json({
         success: false,
         message: "Curso no encontrado",
       });
     }
-
-    if (curso.createdBy.email !== req.user.correo) {
-      return res.status(403).json({
+    if (cupoCurso < cursoActual.cupoCurso) {
+      return res.status(400).json({
         success: false,
-        message: "No tienes permisos para editar este curso",
+        message: "El cupo no puede ser reducido",
       });
     }
-
     const updatedCurso = await Curso.findByIdAndUpdate(
       uid,
-      {
-        nombreCurso,
-        descripCurso,
-        cupoCurso,
-      },
+      { nombreCurso, descripCurso, cupoCurso },
       { new: true }
     );
 
@@ -156,27 +128,17 @@ export const deleteCurso = async (req, res) => {
     const curso = await Curso.findById(uid);
 
     if (!curso) {
-      return res.status(404).json({
-        success: false,
-        message: "Curso no encontrado",
-      });
-    }
-
-    if (curso.createdBy.email !== req.user.correo) {
-      return res.status(403).json({
-        success: false,
-        message: "No tienes permisos para eliminar este curso",
-      });
+      return res
+        .status(404)
+        .json({ success: false, message: "Curso no encontrado" });
     }
 
     curso.status = false;
     await curso.save();
 
-    return res.status(200).json({
-      success: true,
-      message: "Curso desactivado (eliminado)",
-      curso,
-    });
+    return res
+      .status(200)
+      .json({ success: true, message: "Curso eliminado correctamente", curso });
   } catch (err) {
     return res.status(500).json({
       success: false,
