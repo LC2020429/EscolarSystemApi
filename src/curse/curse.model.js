@@ -24,6 +24,10 @@ const curseSchema = new Schema({
     ref: "User",
     required: true,
   },
+}, 
+{
+  versionKey: false,
+  timestamps: true,
 });
 
 export default model("Curso", curseSchema);

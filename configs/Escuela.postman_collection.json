@@ -1,0 +1,732 @@
+{
+	"info": {
+		"_postman_id": "3937bdb2-f047-42a0-b8b3-1fb56cb8b83e",
+		"name": "Escuela",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41770366"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register Ale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreUser",
+									"value": "Cristel Alesandra",
+									"type": "text"
+								},
+								{
+									"key": "apellidoUser",
+									"value": "Lopez",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "AleTY",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "aleSa@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234%Abc",
+									"type": "text"
+								},
+								{
+									"key": "tel",
+									"value": "15632897",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/images.jpg"
+								},
+								{
+									"key": "role",
+									"value": "Profesor",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/auth/registe-admin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"auth",
+								"registe-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Juan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreUser",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "apellidoUser",
+									"value": "Pérez",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "juanperez123",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "juanperez@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "MiContraseña123!",
+									"type": "text"
+								},
+								{
+									"key": "tel",
+									"value": "15632897",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/images.jpg"
+								},
+								{
+									"key": "role",
+									"value": "Estudiante",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/auth/registe-admin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"auth",
+								"registe-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Juan Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreUser",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "apellidoUser",
+									"value": "Pérez",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "juanpearez123ytr",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "troya@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "MiContraseña123!",
+									"type": "text"
+								},
+								{
+									"key": "tel",
+									"value": "15632897",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/images.jpg"
+								},
+								{
+									"key": "role",
+									"value": "Profesor",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/auth/regist",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"auth",
+								"regist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Juan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"juanperez123\",\r\n  \"password\": \"MiContraseña123!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Ale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"AleTY\",\r\n  \"password\": \"1234%Abc\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/user/deleteUser/67a860707deb8983abc80fbd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"user",
+								"deleteUser",
+								"67a860707deb8983abc80fbd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditFoto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreUser",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "apellidoUser",
+									"value": "Psrez",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "juanperez123",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "juanperez@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "MiContraseña123!",
+									"type": "text"
+								},
+								{
+									"key": "tel",
+									"value": "15632897",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Compu/Downloads/images.jpg"
+								},
+								{
+									"key": "role",
+									"value": "Estudiante",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/user/updateUser/67a860737deb8983abc80fc1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"user",
+								"updateUser",
+								"67a860737deb8983abc80fc1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "AddCurse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"67a8ab8e11463db4a8ea7a90\",\r\n  \"nombreCurso\": \"Mate\",\r\n  \"descripCurso\": \"Aprende matematica\",\r\n  \"cupoCurso\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/curse/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"curse",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListCurse",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"67a8ab8e11463db4a8ea7a90\",\r\n  \"nombreCurso\": \"Mate\",\r\n  \"descripCurso\": \"Aprende matematica\",\r\n  \"cupoCurso\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/curse/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"curse",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchCurse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/curse/67a8c30f9a14758229dc5961",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"curse",
+								"67a8c30f9a14758229dc5961"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCurse",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67a8ab8e11463db4a8ea7a90\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/curse/delete/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"curse",
+								"delete",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67a8c3989a14758229dc5964"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHANGECurse Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67a8c2f79a14758229dc595e\",\r\n    \"nombreCurso\": \"Matemáticas Avanzadas\", // Nuevo nombre del curso\r\n    \"descripCurso\": \"Curso avanzado de matemáticas\", // Nueva descripción\r\n    \"cupoCurso\": 25 // Nuevo cupo del curso\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/curse/update/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"curse",
+								"update",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67a8c30f9a14758229dc5961"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matri",
+			"item": [
+				{
+					"name": "Matricularse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67a8abc818975cf9f88a9544\", \r\n    \"courseId\": \"67a8c30f9a14758229dc5961\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/matricularse/matricularse",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"matricularse",
+								"matricularse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DesMatricularse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67a8abc818975cf9f88a9544\", \r\n    \"courseId\": \"67a8c30f9a14758229dc5961\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/matricularse/matricularse",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"matricularse",
+								"matricularse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListCurseMatri",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/scholarSystem/v1/matricularse/misCursos/:userId",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"scholarSystem",
+								"v1",
+								"matricularse",
+								"misCursos",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "67a8abc818975cf9f88a9544"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

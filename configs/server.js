@@ -8,7 +8,8 @@ import { dbConnection } from "./mongo.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
 import curseRoutes from "../src/curse/curse.routes.js";
-//import appointmentRoutes from "../src/appointment/appointment.routes.js"
+import matriRoutes from "../src/matriculacion/matri.routes.js";
+
 import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 
 const middlewares = (app) => {
@@ -24,7 +25,7 @@ const routes = (app) => {
   app.use("/scholarSystem/v1/auth", authRoutes);
   app.use("/scholarSystem/v1/user", userRoutes);
   app.use("/scholarSystem/v1/curse", curseRoutes);
-  /// app.use("/adoptionSystem/v1/appointment", appointmentRoutes)
+  app.use("/scholarSystem/v1/matricularse", matriRoutes);
 };
 
 const conectarDB = async () => {
